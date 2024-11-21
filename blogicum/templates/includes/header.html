@@ -1,0 +1,27 @@
+{% load static %}
+<header>
+  <img src="{% static 'img/logo.png' %}" alt="Логотип" style="max-width: 200px; height: auto;">
+    <nav>
+        <a href="{% url 'blog:index' %}">
+          Блогикум
+        </a>        
+        <ul>
+          <li>
+            <a href="{% url 'blog:index' %}">
+              Лента записей
+            </a>
+          </li>
+          <li>              
+            <a href="{% url 'pages:about' %}">
+              О проекте
+            </a>
+          </li>
+          <li>
+            <a href="{% url 'pages:rules' %}">
+              Наши правила
+            </a>
+          </li>
+        </ul>      
+      </div>
+    </nav> 
+  </header>
