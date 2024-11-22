@@ -1,11 +1,11 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block title %}
 Главная страница
 {% endblock %}
 
 {% block content %}
-<h1>Список постов</h1>
+<h1>Лента записей</h1>
 <ul>
     {% for post in posts %}
         <li>Место: {{ post.location }}</li><br>
