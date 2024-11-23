@@ -7,7 +7,6 @@
 
 {% block content %}
 <main>
-    <div class="container py-5">
         <article>
             <ul>
                 <li>Место: {{ post.location }}</li>
@@ -19,6 +18,5 @@
             </p>
         </article>      
         <a class="btn btn-primary" href="{% url 'blog:index' %}">Назад к списку постов</a>
-    </div>
 </main>
 {% endblock %}
