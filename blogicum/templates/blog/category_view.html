@@ -1,9 +1,13 @@
 {% extends "base.html" %}
 {% load static %}
+
 {% block title %}
 Публикации в категории {{ category_slug }}
 {% endblock %}
 
 {% block content %}
-<h1>Публикации в категории {{ category_slug }}</h1>
+<div class="container py-5">
+    <h1>Публикации в категории {{ category_slug }}</h1>
+    <p>Здесь пока что нет публикуемых записей в категории {{ category_slug }}.</p>
+</div>
 {% endblock %}

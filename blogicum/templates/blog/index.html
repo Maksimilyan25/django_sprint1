@@ -1,20 +1,26 @@
 {% extends "base.html" %}
 {% load static %}
+
 {% block title %}
 Главная страница
 {% endblock %}
 
 {% block content %}
-<h1>Лента записей</h1>
-<ul>
-    {% for post in posts %}
-        <li>Место: {{ post.location }}</li><br>
-        <li>Дата: {{ post.date }}</li><br>
-        <li>Категория: {{ post.category }}</li><br>
-        {{ post.text|truncatewords:10 }}
-        <br>
-        <a href="{% url 'blog:post_detail' post.id %}">Читать полный текст</a>
-        <hr>  <!-- Добавлен горизонтальный разделитель -->
-    {% endfor %}
-</ul>
+<div class="container py-5">
+    <h1>Лента записей</h1>
+    <ul style="list-style-type: none; padding-left: 0;">
+        {% for post in post %}
+            <li class="mb-4">  <!-- Добавим отступ между постами -->
+                <ul style="list-style-type: disc; padding-left: 20px;">
+                    <li>Место: {{ post.location }}</li>
+                    <li>Дата: {{ post.date }}</li>
+                    <li>Категория: <a href="{% url 'blog:category_posts' post.category %}" style="font-weight: bold;">{{ post.category }}</a></li>
+                </ul>
+                <p>{{ post.text|truncatewords:10 }}</p>
+                <a href="{% url 'blog:post_detail' post.id %}">Читать полный текст</a>
+                <hr>  <!-- Сплошная линия отделяет каждый пост -->
+            </li>
+        {% endfor %}
+    </ul>
+</div>
 {% endblock %}

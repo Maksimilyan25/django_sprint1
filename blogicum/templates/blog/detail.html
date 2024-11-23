@@ -1,15 +1,24 @@
 {% extends "base.html" %}
 {% load static %}
+
 {% block title %}
 {{ post.location }}
 {% endblock %}
 
 {% block content %}
-<ul>
-    <li>Место: {{ post.location }}</li><br>
-    <li>Дата: {{ post.date }}</li><br>
-    <li>Категория: {{ post.category }}</li><br>
-</ul>
-{{ post.text }}
-<a href="{% url 'blog:index' %}">Назад к списку постов</a>
+<main>
+    <div class="container py-5">
+        <article>
+            <ul>
+                <li>Место: {{ post.location }}</li>
+                <li>Дата: {{ post.date }}</li>
+                <li>Категория: <a href="{% url 'blog:category_posts' post.category %}">{{ post.category }}</a></li>
+            </ul>
+            <p>
+                {{ post.text|linebreaks }}
+            </p>
+        </article>      
+        <a class="btn btn-primary" href="{% url 'blog:index' %}">Назад к списку постов</a>
+    </div>
+</main>
 {% endblock %}

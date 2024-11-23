@@ -51,7 +51,7 @@ def category_posts(request, category_slug):
 
 def index(request):
     template = 'blog/index.html'
-    return render(request, template, {'posts': posts})
+    return render(request, template, {'post': posts[::-1]})
 
 
 def post_detail(request, id):
