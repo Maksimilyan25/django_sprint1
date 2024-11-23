@@ -58,7 +58,7 @@ def post_detail(request, id):
     # Получаем пост по его ID
     post = next((post for post in posts if post['id'] == id), None)
     if post is None:
-        return render(request, 'blog/no_post_found.html', {})  # Обработка случая, когда пост не найден
+        return render(request, 'blog/no_post_found.html', {})  # Если нет поста
     return render(request, 'blog/detail.html', {'post': post})
 
 
