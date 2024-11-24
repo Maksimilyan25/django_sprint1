@@ -1,8 +1,9 @@
 from django.shortcuts import render
-
 from django.http import Http404
+from typing import Any, Dict, List
 
-posts = [
+
+posts: List[Dict[str, Any]] = [
     {
         'id': 0,
         'location': 'Остров отчаянья',
@@ -46,7 +47,7 @@ posts = [
 ]
 
 
-posts_dict = {post['id']: post for post in posts}
+posts_dict: Dict[int, Dict[str, Any]] = {post['id']: post for post in posts}
 
 
 def category_posts(request, category_slug):
@@ -62,7 +63,7 @@ def index(request):
 def post_detail(request, post_id):
     post = posts_dict.get(post_id)
     if post is None:
-        raise Http404("Пост не найден.")
+        raise Http404('Пост не найден.')
     return render(request, 'blog/detail.html', {'post': post})
 
 
