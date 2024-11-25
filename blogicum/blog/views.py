@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import Http404
+
 from typing import Any, Dict, List
 
 
@@ -61,9 +62,10 @@ def index(request):
 
 
 def post_detail(request, post_id):
-    post = posts_dict.get(post_id)
-    if post is None:
+    if post_id not in posts_dict:
         raise Http404('Пост не найден.')
+
+    post = posts_dict[post_id]
     return render(request, 'blog/detail.html', {'post': post})
 
 
